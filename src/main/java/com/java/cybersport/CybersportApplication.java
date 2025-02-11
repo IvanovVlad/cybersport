@@ -23,7 +23,8 @@ public class CybersportApplication {
 
     @EventListener(ApplicationReadyEvent.class)
     public void doSomethingAfterStartup() {
-        Parser parser = new Parser(new HTMLloader().sendRequest("https://www.cybersport.ru/"));
+        String source = new HTMLloader().sendRequest("https://www.cybersport.ru/");
+        Parser parser = new Parser(source);
         List<News> newsList = parser.parse();
         newsService.saveNews(newsList);
 

@@ -17,7 +17,7 @@ public class Parser {
     public List<News> parse() {
         List<News> results = new ArrayList<>();
 
-        Pattern pattern = Pattern.compile("class=\"news-sidebar__link.*\">(.*)</a>");
+        Pattern pattern = Pattern.compile("class=\"title_.*\">(.*)</h3>");
         Matcher matcher = pattern.matcher(document);
 
         for (int i = 0; i < 3; i++) {
